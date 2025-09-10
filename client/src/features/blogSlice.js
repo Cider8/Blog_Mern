@@ -1,14 +1,20 @@
+
+// export default blogSlice.reducer;
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL + "/blogs";
-//fetch all blogs
+// Use environment variable for API base URL
+// Local:  VITE_API_URL=http://localhost:5000/blogs
+// Render: VITE_API_URL=https://blog-mern-b3s2.onrender.com/blogs
+const API_URL = import.meta.env.VITE_API_URL;
+
+// Fetch all blogs
 export const fetchBlogs = createAsyncThunk("blogs/fetchBlogs", async () => {
   const res = await axios.get(API_URL);
   return res.data;
 });
 
-//Autosave Blog
+// Save (create or update) a blog
 export const saveBlog = createAsyncThunk("blogs/saveBlog", async (blog) => {
   if (blog._id) {
     const res = await axios.put(`${API_URL}/${blog._id}`, blog);
@@ -19,7 +25,7 @@ export const saveBlog = createAsyncThunk("blogs/saveBlog", async (blog) => {
   }
 });
 
-//Delete Blog
+// Delete a blog
 export const deleteBlog = createAsyncThunk("blogs/deleteBlog", async (id) => {
   await axios.delete(`${API_URL}/${id}`);
   return id;
@@ -46,3 +52,4 @@ const blogSlice = createSlice({
 });
 
 export default blogSlice.reducer;
+
