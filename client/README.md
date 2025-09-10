@@ -15,4 +15,4 @@ Deployed on: Vercel
 - API integration using Axios
 - Responsive UI with React
 
-//render Link: https://blog-mern-tau.vercel.app/
+//Frontend Link: https://blog-mern-tau.vercel.app/
