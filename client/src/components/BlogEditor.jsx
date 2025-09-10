@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ReactQuill from "react-quill";
@@ -45,7 +46,7 @@ export default function BlogEditor({ blog }) {
             setStatus("Error saving");
             toast.error("Failed to save changes", { id: "save-toast" });
           });
-      }, 1000); // autosave after 1s idle
+      }, 3000); // autosave after 3s idle
 
       return () => clearTimeout(timeout);
     }
@@ -61,7 +62,6 @@ export default function BlogEditor({ blog }) {
 
   return (
     <div className="flex-1 flex flex-col p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg">
-    
       {/* Title */}
       <input
         type="text"
@@ -69,25 +69,22 @@ export default function BlogEditor({ blog }) {
         onChange={(e) => handleChange("title", e.target.value)}
         placeholder="Enter blog title..."
         className="text-2xl font-bold mb-4 p-2 border-b border-gray-300 dark:border-gray-700 bg-transparent outline-none"
-        
       />
-      
 
       {/* Editor */}
       <ReactQuill
-      theme="snow"
-      value={currentBlog.content || ""}
-      onChange={(value) => setCurrentBlog({ ...currentBlog, content: value })}
-      placeholder="Write something amazing..."
-      className="h-[70vh] mb-4 bg-white dark:bg-grey-900 dark:text-gray-100"
+        theme="snow"
+        value={currentBlog.content || ""}
+        onChange={(value) => handleChange("content", value)} // ✅ FIXED
+        placeholder="Write something amazing..."
+        className="h-[70vh] mb-4 bg-white dark:bg-gray-900 dark:text-gray-100"
       />
-      
+
       {/* Status only */}
       <div className="flex justify-end items-center">
-        <span className="text-sm text-grey-500">{status}</span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">{status}</span>
       </div>
     </div>
   );
 }
-
 
