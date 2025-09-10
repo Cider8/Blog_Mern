@@ -5,7 +5,7 @@ import axios from "axios";
 
 // Use environment variable for API base URL
 // Local:  VITE_API_URL=http://localhost:5000/blogs
-// Render: VITE_API_URL=https://blog-mern-b3s2.onrender.com/blogs
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 // Fetch all blogs

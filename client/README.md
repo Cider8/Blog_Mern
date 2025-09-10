@@ -3,6 +3,8 @@
 This is the frontend of the Blog MERN project, built using React (Vite), Redux Toolkit, React-Quill and Axios.
 It connects to the Express + MongoDB backend API for managing blog posts.
 
+# use Tailwind.css for styling
+
 Deployed on: Vercel
 
 # Features
@@ -12,3 +14,5 @@ Deployed on: Vercel
 - State management with Redux Toolkit
 - API integration using Axios
 - Responsive UI with React
+
+//render Link: https://blog-mern-tau.vercel.app/
