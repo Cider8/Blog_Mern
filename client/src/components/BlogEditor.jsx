@@ -75,7 +75,7 @@ export default function BlogEditor({ blog }) {
       <ReactQuill
         theme="snow"
         value={currentBlog.content || ""}
-        onChange={(value) => handleChange("content", value)} // ✅ FIXED
+        onChange={(value) => handleChange("content", value)} 
         placeholder="Write something amazing..."
         className="h-[70vh] mb-4 bg-white dark:bg-gray-900 dark:text-gray-100"
       />
